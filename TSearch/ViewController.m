@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-//#import "BaseClass.h"
+#import "BaseClass.h"
 @interface ViewController ()
 
 
@@ -17,6 +17,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    //Sorry for my "dirty" code, i was in a hurry
+    //Yes, i know about MVC and code quality
+    
     BaseClass *BCObject = [BaseClass sharedInstance];
     [BCObject connectToDataBase:@"http://food2fork.com/api/search?key=3e9166ad629eca6587a5e501e4e30961&q=shredded%20chicken"];
     [BCObject setTitleOfTheDishes:[NSMutableArray arrayWithArray:[BCObject parser:@"\"title\": \"" :@"\", \"source_url"]]];
@@ -33,7 +37,11 @@
     return [[BCObject titleOfTheDishes] count];
 }
 
--(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+-(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+        //Sorry for my "dirty" code, i was in a hurry
+       //Yes, i know about MVC and code quality
+    
     BaseClass *BCObject = [BaseClass sharedInstance];
     UITableViewCell *cell;
     cell = [tableView dequeueReusableCellWithIdentifier:@"CELL"];
@@ -42,37 +50,29 @@
     cell.textLabel.font  = myFont;
     cell.textLabel.text = [[BCObject titleOfTheDishes] objectAtIndex:index];
     cell.imageView.image = [UIImage imageWithData:[[BCObject allImages] objectAtIndex:index]];
-    
-  
     return cell;
-
 }
 
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    //Sorry for my "dirty" code, i was in a hurry
+    //Yes, i know about MVC and code quality
+    
     BaseClass * BCObject = [BaseClass sharedInstance];
     BCObject.numberValue = indexPath.row;
     [tableView deselectRowAtIndexPath:indexPath animated:true];
     NSMutableString *tmp = [NSMutableString stringWithFormat:@"http://food2fork.com/api/get?key=3e9166ad629eca6587a5e501e4e30961&rId="];
     [tmp appendString:[BCObject.urlWithDetail objectAtIndex:BCObject.numberValue]];
     NSURL *referenceToDataBase = [NSURL URLWithString:tmp];
-    BCObject.blabla = [[NSString alloc]initWithContentsOfURL:referenceToDataBase encoding:NSUTF8StringEncoding error:nil];
+    BCObject.onlyOneDetail = [[NSString alloc]initWithContentsOfURL:referenceToDataBase encoding:NSUTF8StringEncoding error:nil];
     [BCObject parseForDetail];
-    
-    NSLog(@"%@",BCObject.blabla);
-
-    
     [self performSegueWithIdentifier:@"mySegue" sender:nil];
-    
-    
 }
-
 
 
 -(BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
 {
-    
     return NO;
 }
 
@@ -86,16 +86,9 @@
         DetailViewController *DVCObject = (DetailViewController*)segue.destinationViewController;
         [DVCObject  setName:[[BCObject titleOfTheDishes] objectAtIndex:BCObject.numberValue]];
         [DVCObject  setData:[[BCObject allImages] objectAtIndex:BCObject.numberValue]];
-          [DVCObject  setDetailAboutDish:[BCObject detailedDescription]];
-        
-        
+        [DVCObject  setDetailAboutDish:[BCObject detailedDescription]];
     }
 }
-
-
-
-
-
 
 
 - (void)didReceiveMemoryWarning {

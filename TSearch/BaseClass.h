@@ -9,31 +9,29 @@
 #import <Foundation/Foundation.h>
 
 @interface BaseClass : NSObject
-{
-    NSMutableArray *titleOfTheDishes;
-    NSMutableArray *postersOfTheDishes;
-    NSMutableArray *descriptionOfTheDishes;
-    NSMutableArray *allImages;
-     NSString* detailedDescription;
 
-    NSString * generalInformation;
-   
-  
-    NSData* imagesForPosters;
-}
-@property NSMutableArray *titleOfTheDishes;
-@property NSMutableArray *postersOfTheDishes;
-@property  NSMutableArray *descriptionOfTheDishes;
-@property NSMutableArray *allImages;
-@property int numberValue;
-@property NSMutableArray* urlWithDetail;
-@property NSString* detailedDescription;
-@property NSString* blabla;
+@property (nonatomic, retain)  NSData* imagesForPosters;
+@property (nonatomic, retain)  NSString * generalInformation;
+@property (nonatomic, retain)  NSMutableArray *titleOfTheDishes;
+@property (nonatomic, retain)  NSMutableArray *postersOfTheDishes;
+@property (nonatomic, retain)  NSMutableArray *descriptionOfTheDishes;
+@property (nonatomic, retain)  NSMutableArray *allImages;
+@property (nonatomic, assign)  int numberValue;
+@property (nonatomic, retain)  NSMutableArray* urlWithDetail;
+@property (nonatomic, retain)  NSString* detailedDescription;
+@property (nonatomic, retain)  NSString* onlyOneDetail;
+
+//singleton
 +(BaseClass*)sharedInstance;
+//for first general information
 -(NSString*)connectToDataBase:(NSString*)type;
+//base parser
 -(NSMutableArray*)parser:(NSString*)start :(NSString*)end;
+//parser for recepe detail
 -(void)parseForDetail;
+//for image convertation
 -(NSData*)getImageForPosters:(BaseClass*)ob;
+//for asynchronic download
 -(void)downloadAllImage;
 
 @end

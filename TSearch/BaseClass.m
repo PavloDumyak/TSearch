@@ -8,10 +8,10 @@
 
 #import "BaseClass.h"
 
+
 @implementation BaseClass
-@synthesize titleOfTheDishes;
-@synthesize descriptionOfTheDishes;
-@synthesize allImages;
+
+
 +(BaseClass*)sharedInstance{
     static BaseClass* mySingletone = nil;
     static dispatch_once_t predicate;
@@ -22,14 +22,14 @@
 
 -(NSString*)connectToDataBase:(NSString*)type{
     NSURL *referenceToDataBase = [NSURL URLWithString:type];
-    generalInformation = [[NSString alloc]initWithContentsOfURL:referenceToDataBase encoding:NSUTF8StringEncoding error:nil];
-    return generalInformation;
+    _generalInformation = [[NSString alloc]initWithContentsOfURL:referenceToDataBase encoding:NSUTF8StringEncoding error:nil];
+    return _generalInformation;
 }
 
 -(NSMutableArray*)parser:(NSString*)start :(NSString*)end{
     NSMutableArray *data = [NSMutableArray arrayWithCapacity:20];
     NSString *tmp = nil;
-    NSScanner *textScanner = [[NSScanner alloc]initWithString:generalInformation];
+    NSScanner *textScanner = [[NSScanner alloc]initWithString:_generalInformation];
     while([textScanner isAtEnd]==NO){
         [textScanner setCharactersToBeSkipped:nil];
         [textScanner scanUpToString:start intoString:NULL];
@@ -39,14 +39,14 @@
             }
         }
     }
-    
     return data;
 }
 
 -(void)parseForDetail{
+    
    BaseClass *BCObject = [BaseClass sharedInstance];
     NSString *tmp = nil;
-    NSScanner *textScanner = [[NSScanner alloc]initWithString:BCObject.blabla];
+    NSScanner *textScanner = [[NSScanner alloc]initWithString:BCObject.onlyOneDetail];
     while([textScanner isAtEnd]==NO){
         [textScanner setCharactersToBeSkipped:nil];
         [textScanner scanUpToString:@"\"ingredients\": [\"" intoString:NULL];
@@ -56,20 +56,18 @@
             }
         }
     }
-    
-  
 }
 
 
 -(void)downloadAllImage
-{BaseClass *BCObject = [BaseClass sharedInstance];
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+{
+       BaseClass *BCObject = [BaseClass sharedInstance];
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         NSMutableData* postersArray;
         NSURL* postersUrl;
         NSMutableArray* tmpArr = [[NSMutableArray alloc]initWithCapacity:30];
         for(int i=0;i<[[BCObject titleOfTheDishes] count];i++)
         {
-            
             postersUrl = [[NSURL alloc]initWithString:[[BCObject postersOfTheDishes] objectAtIndex:i]];
             postersArray = [NSMutableData dataWithContentsOfURL:postersUrl];
             [tmpArr addObject:postersArray];
@@ -79,10 +77,6 @@
 
     });
     
-  
-    
-    
-   
 }
 
 

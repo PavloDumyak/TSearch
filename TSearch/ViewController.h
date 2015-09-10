@@ -11,6 +11,5 @@
 #import "DetailViewController.h"
 @interface ViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
 
-
 @end
 

@@ -14,18 +14,19 @@
 
 @implementation DetailViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     self.nameOfDish.text = self.name;
     self.imageView.image = [UIImage imageWithData:self.data];
     self.detail.text = self.detailAboutDish;
-    
-    // Do any additional setup after loading the view.
+ 
 }
 
-- (void)didReceiveMemoryWarning {
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+
 }
 
 
