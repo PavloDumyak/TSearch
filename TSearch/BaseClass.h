@@ -27,7 +27,7 @@
 -(NSString*)connectToDataBase:(NSString*)type;
 //base parser
 -(NSMutableArray*)parser:(NSString*)start :(NSString*)end;
-//parser for recepe detail
+//parser for recipe detail
 -(void)parseForDetail;
 //for image convertation
 -(NSData*)getImageForPosters:(BaseClass*)ob;
