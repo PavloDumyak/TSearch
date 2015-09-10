@@ -14,6 +14,8 @@
 		6D395E6C1BA1669D0059E2E1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6D395E6B1BA1669D0059E2E1 /* Images.xcassets */; };
 		6D395E6F1BA1669D0059E2E1 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D395E6D1BA1669D0059E2E1 /* LaunchScreen.xib */; };
 		6D395E7B1BA1669D0059E2E1 /* TSearchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D395E7A1BA1669D0059E2E1 /* TSearchTests.m */; };
+		6D395E861BA166C30059E2E1 /* BaseClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D395E851BA166C30059E2E1 /* BaseClass.m */; };
+		6D395E891BA1994A0059E2E1 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D395E881BA1994A0059E2E1 /* DetailViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +42,10 @@
 		6D395E741BA1669D0059E2E1 /* TSearchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TSearchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D395E791BA1669D0059E2E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6D395E7A1BA1669D0059E2E1 /* TSearchTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TSearchTests.m; sourceTree = "<group>"; };
+		6D395E841BA166C30059E2E1 /* BaseClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseClass.h; sourceTree = "<group>"; };
+		6D395E851BA166C30059E2E1 /* BaseClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseClass.m; sourceTree = "<group>"; };
+		6D395E871BA1994A0059E2E1 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		6D395E881BA1994A0059E2E1 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +95,8 @@
 				6D395E6B1BA1669D0059E2E1 /* Images.xcassets */,
 				6D395E6D1BA1669D0059E2E1 /* LaunchScreen.xib */,
 				6D395E5E1BA1669D0059E2E1 /* Supporting Files */,
+				6D395E841BA166C30059E2E1 /* BaseClass.h */,
+				6D395E851BA166C30059E2E1 /* BaseClass.m */,
 			);
 			path = TSearch;
 			sourceTree = "<group>";
@@ -98,6 +106,8 @@
 			children = (
 				6D395E5F1BA1669D0059E2E1 /* Info.plist */,
 				6D395E601BA1669D0059E2E1 /* main.m */,
+				6D395E871BA1994A0059E2E1 /* DetailViewController.h */,
+				6D395E881BA1994A0059E2E1 /* DetailViewController.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -219,9 +229,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D395E891BA1994A0059E2E1 /* DetailViewController.m in Sources */,
 				6D395E671BA1669D0059E2E1 /* ViewController.m in Sources */,
 				6D395E641BA1669D0059E2E1 /* AppDelegate.m in Sources */,
 				6D395E611BA1669D0059E2E1 /* main.m in Sources */,
+				6D395E861BA166C30059E2E1 /* BaseClass.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
